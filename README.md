@@ -13,7 +13,7 @@ Descrição do projeto e como configurar o ambiente de desenvolvimento.
 - CSS
 - JavaScript
 - Bootstrap
-
+- Swift (atualização em andamento) 
 ## Licença
 
 Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
