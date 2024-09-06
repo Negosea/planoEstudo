@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Estudos</title>
+    <!-- Incluindo Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Incluindo Font Awesome para ícones -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        @media (max-width: 768px) {
+            .table-custom {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            .table-custom thead {
+                display: none;
+            }
+            .table-custom tr {
+                display: block;
+                margin-bottom: 10px;
+            }
+            .table-custom td {
+                display: block;
+                text-align: right;
+                font-size: 14px;
+                padding: 5px;
+                position: relative;
+            }
+            .table-custom td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 50%;
+                padding-right: 10px;
+                white-space: nowrap;
+                font-weight: bold;
+            }
+        }
+        /* Adicionando estilo para o tema escuro */
+        .dark {
+            background-color: #1e1e2f;  /* Fundo escuro azulado */
+            color: #e0e0e0;  /* Texto claro suave */
+        }
+
+        .dark .table-custom {
+            background-color: #252537;  /* Fundo levemente mais claro que o fundo geral */
+            color: #e0e0e0;  /* Texto da tabela */
+        }
+
+        .dark .btn-primary {
+            background-color: #3a3a5a;  /* Cor escura para botões, com leve tom azulado */
+            color: #ffffff;  /* Texto claro para botões */
+            border-color: #5b5b8c;  /* Borda mais clara para botões */
+        }
+
+        .dark .btn-primary:hover {
+            background-color: #5b5b8c;  /* Cor do botão ao passar o mouse */
+        }
+
+        .dark .navbar {
+            background-color: #181828;  /* Fundo da navbar bem escuro */
+            color: #ffffff;  /* Texto claro para contraste */
+        }
+
+        .dark .navbar a {
+            color: #c5c5ff;
+        }
+    </style>
+</head>
+<body class="dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Plano de Estudos</a>
+    </nav>
+
+    <div class="container">
+        <h1 class="my-4">Plano de Estudos</h1>
+        <button class="btn btn-primary btn-export" onclick="exportTableToPDF()">Exportar para PDF <i class="fas fa-file-pdf"></i></button>
+        <button class="btn btn-primary" onclick="exportTableToCSV('plano_de_estudos.csv')">Exportar para CSV</button>
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Estudo+Semana+1&dates=20240905T120000Z/20240905T130000Z&details=Estudo+de+Swift&location=Online" target="_blank" class="btn btn-secondary">Adicionar ao Google Calendar</a>
+
+        <table class="table table-striped table-custom">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Mês/Semana <i class="fas fa-sort"></i></th>
+                    <th>Datas</th>
+                    <th>Conteúdo</th>
+                    <th>Objetivo</th>
+                    <th>Anotações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Outubro 2024 -->
+                <tr>
+                    <td>Outubro 2024 - Semana 1</td>
+                    <td>01/10/2024 - 07/10/2024</td>
+                    <td>Introdução ao UIKit</td>
+                    <td>Configurar o ambiente de desenvolvimento e entender a estrutura básica do UIKit</td>
+                    <td><textarea class="note-input" placeholder="Adicionar anotações..."></textarea></td>
+                </tr>
+                <tr>
+                    <td>Outubro 2024 - Semana 2</td>
+                    <td>08/10/2024 - 14/10/2024</td>
+                    <td>UIKit Básico: Views, Botões, Labels</td>
+                    <td>Construir interfaces básicas com UIKit</td>
+                    <td><textarea class="note-input" placeholder="Adicionar anotações..."></textarea></td>
+                </tr>
+                <tr>
+                    <td>Outubro 2024 - Semana 3</td>
+                    <td>15/10/2024 - 21/10/2024</td>
+                    <td>Auto Layout e Interface Builder</td>
+                    <td>Criar layouts flexíveis e responsivos</td>
+                    <td><textarea class="note-input" placeholder="Adicionar anotações..."></textarea></td>
+                </tr>
+                <tr>
+                    <td>Outubro 2024 - Semana 4</td>
+                    <td>22/10/2024 - 28/10/2024</td>
+                    <td>SwiftUI Básico: Views, Stacks</td>
+                    <td>Construir interfaces declarativas com SwiftUI</td>
+                    <td><textarea class="note-input" placeholder="Adicionar anotações..."></textarea></td>
+                </tr>
+                <tr>
+                    <td>Outubro 2024 - Semana 5</td>
+                    <td>29/10/2024 - 04/11/2024</td>
+                    <td>Navegação e Controle de Estados</td>
+                    <td>Implementar navegação e controle de estados</td>
+                    <td><textarea class="note-input" placeholder="Adicionar anotações..."></textarea></td>
+                </tr>
+                <!-- Novembro 2024 -->
+                <tr>
+                    <td>Novembro 2024 - Semana 6</td>
+                    <td>05/11/2024 - 11/11/2024</td>
+                    <td>Consumo de APIs: URLSession, JSON</td>
+                    <td>Fazer requisições HTTP e consumir APIs</td>
+                    <td><textarea class="note-input" placeholder="Adicionar anotações..."></textarea></td>
+                </tr>
+                <tr>
+                    <td>Novembro 2024 - Semana 7</td>
+                    <td>12/11/2024 - 18/11/2024</td>
+                    <td>Persistência de Dados: UserDefaults, Core Data</td>
+                    <td>Salvar e gerenciar dados localmente</td>
+                    <td><textarea class="note-input" placeholder="Adicionar anotações..."></textarea></td>
+                </tr>
+                <tr>
+                    <td>Novembro 2024 - Semana 8</td>
+                    <td>19/11/2024 - 25/11/2024</td>
+                    <td>Autenticação e Segurança</td>
+                    <td>Implementar autenticação e segurança de dados</td>
+                    <td><textarea class="note-input" placeholder="Adicionar anotações..."></textarea></td>
+                </tr>
+                <tr>
+                    <td>Novembro 2024 - Semana 9</td>
+                    <td>26/11/2024 - 02/12/2024</td>
+                    <td>Core Data Avançado</td>
+                    <td>Gerenciar dados complexos com Core Data</td>
+                    <td><textarea class="note-input" placeholder="Adicionar anotações..."></textarea></td>
+                </tr>
+                <!-- Continuar as semanas de dezembro -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Incluindo Bootstrap JS e dependências -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Funções de exportação -->
+    <script>
+        function exportTableToPDF() {
+            // Função para exportar tabela como PDF
+        }
+
+        function exportTableToCSV(filename) {
+            // Função para exportar tabela como CSV
+        }
+    </script>
+</body>
+</html>
